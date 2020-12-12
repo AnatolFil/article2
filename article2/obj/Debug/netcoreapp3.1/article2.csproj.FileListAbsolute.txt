@@ -1,0 +1,13 @@
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.csprojAssemblyReference.cache
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.AssemblyInfoInputs.cache
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.AssemblyInfo.cs
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.csproj.CoreCompileInputs.cache
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.exe
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.deps.json
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.runtimeconfig.json
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.runtimeconfig.dev.json
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.dll
+C:\Users\chupakabra\source\repos\article2\article2\bin\Debug\netcoreapp3.1\article2.pdb
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.dll
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.pdb
+C:\Users\chupakabra\source\repos\article2\article2\obj\Debug\netcoreapp3.1\article2.genruntimeconfig.cache
