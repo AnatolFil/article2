@@ -6,7 +6,7 @@ namespace article2
     {
         static void Main(string[] args)
         {
-            linkedList<int> list = new linkedList<int>();
+            linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
             for(int i=0;i<100000000; i++)
             {
@@ -15,27 +15,90 @@ namespace article2
                 else
                     list.delete(rand.Next(0, i));
             }
-            for(int i=0;i<list.getTotalLength();i++)
+            /*for(int i=0;i<list.getTotalLength();i++)
             {
                 Console.Write(list.getElement(i) + "  ");
-            }
+            }*/
             Console.WriteLine("Hello World!");
         }
     }
+
+    class listElement<T>
+    {
+        public T element;
+        public listElement<T> nextElement;
+        public listElement<T> prevElement;
+    }
     public class linkedList2<T>
     {
-        struct listElement<T>
-        {
-            public T element;
-            public listElement<T> nextElement { get; set; }
-            public listElement<T> prevElement { get; set; }
-        }
-        T firstElement;
-        T lastElement;
+        listElement<T> firstElement;
+        listElement<T> lastElement;
         public int countOfElements;
+        public linkedList2()
+        {
+            countOfElements = 0;
+        }
+
         public void add(T element)
         {
-
+            listElement<T> newEl = new listElement<T>();
+            newEl.element = element;
+            if (countOfElements == 0)
+            {
+                newEl.nextElement = null;
+                newEl.prevElement = null;
+                firstElement = newEl;
+            } else
+            {
+                newEl.prevElement = lastElement;
+                newEl.nextElement = null;
+                lastElement.nextElement = newEl;
+            }
+            lastElement = newEl;
+            countOfElements++;
+        }
+        public void delete(T element)
+        {
+            if(countOfElements > 0)
+            {
+                listElement<T> current = firstElement;
+                bool isExist = false;
+                
+                while (current != null)
+                {
+                    if (current.element.Equals(element))
+                    {
+                        isExist = true;
+                        break;
+                    }
+                    if (current.nextElement != null)
+                        current = current.nextElement;
+                    else
+                        break;
+                }
+                if(isExist)
+                {
+                    if (current == lastElement)
+                    {
+                        if(current.prevElement != null)
+                            current.prevElement.nextElement = null;
+                        lastElement = current.prevElement;
+                    }
+                    else if (current == firstElement)
+                    {
+                        current.nextElement.prevElement = null;
+                        firstElement = current.nextElement;
+                    }
+                    else
+                    {
+                        current.nextElement.prevElement = current.prevElement;
+                        current.prevElement.nextElement = current.nextElement;
+                    }
+                    if (isExist)
+                        countOfElements--;
+                }
+                
+            } 
         }
     }
     public class linkedList <T>
