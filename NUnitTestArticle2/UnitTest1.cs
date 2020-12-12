@@ -17,7 +17,7 @@ namespace NUnitTestArticle2
         {
             linkedList<int> list = new linkedList<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 100000000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 if (rand.Next(0, 20) > 10)
                     list.add(i);
@@ -28,6 +28,18 @@ namespace NUnitTestArticle2
             list.add(11);
             Assert.IsTrue(coutOfEl == list.countOfElements - 1);
             Assert.Pass();
+        }
+        [Test]
+        public void testDeleteDoublesInLinkedList2()
+        {
+            linkedList2<int> list = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 20; i++)
+            {
+                list.add(i%10);
+            }
+            list.deleteDoubles();
+            Assert.AreEqual(10, list.countOfElements);
         }
     }
 }

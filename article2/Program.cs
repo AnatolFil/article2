@@ -8,22 +8,22 @@ namespace article2
         {
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for(int i=0;i<100000000; i++)
+            for (int i = 0; i < 10; i++)
+            {
+                list.add(i % 5);
+            }
+            list.deleteDoubles();
+            for (int i=0;i<10000; i++)
             {
                 if (rand.Next(0, 20) > 10)
-                    list.add(i);
-                else
-                    list.delete(rand.Next(0, i));
+                    list.add(i%20);
             }
-            /*for(int i=0;i<list.getTotalLength();i++)
-            {
-                Console.Write(list.getElement(i) + "  ");
-            }*/
+            list.deleteDoubles();
             Console.WriteLine("Hello World!");
         }
     }
 
-    class listElement<T>
+    public class listElement<T>
     {
         public T element;
         public listElement<T> nextElement;
@@ -38,7 +38,6 @@ namespace article2
         {
             countOfElements = 0;
         }
-
         public void add(T element)
         {
             listElement<T> newEl = new listElement<T>();
@@ -96,9 +95,51 @@ namespace article2
                     }
                     if (isExist)
                         countOfElements--;
-                }
-                
+                }   
             } 
+        }
+        public void delete(listElement<T> element)
+        {
+            if(countOfElements > 0 && element != null)
+            {
+                if(element == firstElement)
+                {
+                    if(element.nextElement != null)
+                        element.nextElement.prevElement = null;
+                    firstElement = element.nextElement;
+                } else if(element == lastElement)
+                {
+                    if(element.prevElement != null)
+                        element.prevElement.nextElement = null;
+                    lastElement = element.prevElement;
+                } else
+                {
+                    if(element.nextElement != null)
+                        element.nextElement.prevElement = element.prevElement;
+                    if(element.prevElement != null)
+                        element.prevElement.nextElement = element.nextElement;
+                }
+                countOfElements--;
+            }
+        }
+        public void deleteDoubles()
+        {
+            if (countOfElements < 2)
+                return;
+            listElement<T> current = firstElement;
+            while (current != lastElement && current != null)
+            {
+                listElement<T> compareEl = current;
+                while(compareEl != null)
+                {
+                    if (compareEl.nextElement != null && current.element.Equals(compareEl.nextElement.element))
+                    {
+                        delete(compareEl.nextElement);
+                    }
+                    compareEl = compareEl.nextElement;
+                }
+                current = current.nextElement;
+            }
         }
     }
     public class linkedList <T>
