@@ -161,6 +161,13 @@ namespace article2
                 }
              }
         }
+        public void deleteElForOneLinkedListFromEnd(int indexFromEnd)
+        {
+            if(countOfElements > indexFromEnd)
+            {
+
+            }
+        }
     }
     public class linkedList <T>
     {
@@ -283,4 +290,5 @@ namespace article2
             return default(T);
         }
     }
+    
 }
