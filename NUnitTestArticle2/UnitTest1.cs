@@ -34,12 +34,24 @@ namespace NUnitTestArticle2
         {
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 10000; i++)
             {
-                list.add(i%10);
+                list.add(i%(10000 / 2));
             }
             list.deleteDoubles();
-            Assert.AreEqual(10, list.countOfElements);
+            Assert.AreEqual((10000 / 2), list.countOfElements);
+        }
+        [Test]
+        public void testDeleteDoublesHashTbInLinkedList2()
+        {
+            linkedList2<int> list = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 1000000; i++)
+            {
+                list.add(i % (1000000 / 2));
+            }
+            list.deleteDoublesHashTb();
+            Assert.AreEqual((1000000 / 2), list.countOfElements);
         }
     }
 }

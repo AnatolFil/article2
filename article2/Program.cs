@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace article2
 {
@@ -8,17 +9,18 @@ namespace article2
         {
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 10; i++)
+            int delitel = 10000 / 2;
+            for (int i = 0; i < 10000; i++)
             {
-                list.add(i % 5);
+                list.add(i % delitel);
             }
             list.deleteDoubles();
-            for (int i=0;i<10000; i++)
+            for (int i=0;i<10000000; i++)
             {
                 if (rand.Next(0, 20) > 10)
                     list.add(i%20);
             }
-            list.deleteDoubles();
+            list.deleteDoublesHashTb();
             Console.WriteLine("Hello World!");
         }
     }
@@ -140,6 +142,24 @@ namespace article2
                 }
                 current = current.nextElement;
             }
+        }
+        public void deleteDoublesHashTb()
+        {
+            if(countOfElements > 1)
+            {
+                Hashtable hashTb = new Hashtable();
+                listElement<T> current = firstElement;
+                while(current != null)
+                {
+                    if (hashTb.Contains(current.element))
+                    {
+                        delete(current);
+                    }
+                    else
+                        hashTb.Add(current.element, current);
+                    current = current.nextElement;
+                }
+             }
         }
     }
     public class linkedList <T>
