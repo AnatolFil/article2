@@ -161,12 +161,21 @@ namespace article2
                 }
              }
         }
-        public void deleteElForOneLinkedListFromEnd(int indexFromEnd)
+        public listElement<T> findElForOneLinkedListFromEnd(int indexFromEnd)
         {
-            if(countOfElements > indexFromEnd)
+            if(countOfElements > 0 && countOfElements > indexFromEnd)
             {
-
+                listElement<T> current = firstElement;
+                int currentCount = 0;
+                while(current != null )
+                {
+                    if (currentCount == countOfElements - indexFromEnd - 1)
+                        return current;
+                    currentCount++;
+                    current = current.nextElement;
+                }
             }
+            return null;
         }
     }
     public class linkedList <T>
