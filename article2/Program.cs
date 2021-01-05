@@ -7,20 +7,28 @@ namespace article2
     {
         static void Main(string[] args)
         {
+            //linkedList2<int> list = new linkedList2<int>();
+            //Random rand = new Random(DateTime.Now.Millisecond);
+            //int delitel = 10000 / 2;
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    list.add(i % delitel);
+            //}
+            //list.deleteDoubles();
+            //for (int i=0;i<10000000; i++)
+            //{
+            //    if (rand.Next(0, 20) > 10)
+            //        list.add(i%20);
+            //}
+            //list.deleteDoublesHashTb();
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            int delitel = 10000 / 2;
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
-                list.add(i % delitel);
+                list.add(i);
             }
-            list.deleteDoubles();
-            for (int i=0;i<10000000; i++)
-            {
-                if (rand.Next(0, 20) > 10)
-                    list.add(i%20);
-            }
-            list.deleteDoublesHashTb();
+            int el = list.findElForOneLinkedListFromEnd_2pointerRealise(0).element;
+            el = list.findElForOneLinkedListFromEnd_2pointerRealise(1).element;
             Console.WriteLine("Hello World!");
         }
     }
@@ -174,6 +182,27 @@ namespace article2
                     currentCount++;
                     current = current.nextElement;
                 }
+            }
+            return null;
+        }
+        public listElement<T> findElForOneLinkedListFromEnd_2pointerRealise(int indexfromEnd)
+        {
+            if (countOfElements > indexfromEnd)
+            {
+                //int ffstPointer = 0;
+                //int slowdPointer = 0;
+                listElement<T> fastPointerEl = firstElement;
+                for (int i = 1; i <= indexfromEnd; i++)
+                {
+                    fastPointerEl = fastPointerEl.nextElement;
+                }
+                listElement<T> slowPointerEl = firstElement;
+                while(fastPointerEl.nextElement != null)
+                {
+                    fastPointerEl = fastPointerEl.nextElement;
+                    slowPointerEl = slowPointerEl.nextElement;
+                }
+                return slowPointerEl;
             }
             return null;
         }
