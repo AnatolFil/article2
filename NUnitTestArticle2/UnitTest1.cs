@@ -27,7 +27,7 @@ namespace NUnitTestArticle2
             int coutOfEl = list.countOfElements;
             list.add(11);
             Assert.IsTrue(coutOfEl == list.countOfElements - 1);
-            Assert.Pass();
+            //Assert.Pass();
         }
         [Test]
         public void testDeleteDoublesInLinkedList2()
@@ -82,6 +82,21 @@ namespace NUnitTestArticle2
             Assert.AreEqual(989999, list.findElForOneLinkedListFromEnd_2pointerRealise(10000).element);
             Assert.AreEqual(0, list.findElForOneLinkedListFromEnd_2pointerRealise(999999).element);
            // Assert.AreEqual(null, list.findElForOneLinkedListFromEnd_2pointerRealise(1000000).element);
+        }
+        [Test]
+        public void testfindElFromEnd_recursiveRealise()
+        {
+            linkedList2<int> list = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 10000; i++)
+            {
+                list.add(i);
+            }
+            Assert.AreEqual(9999, list.findElFromEnd_recursiveRealise(0).element);
+            Assert.AreEqual(9998, list.findElFromEnd_recursiveRealise(1).element);
+            Assert.AreEqual(9899, list.findElFromEnd_recursiveRealise(100).element);
+            Assert.AreEqual(0, list.findElFromEnd_recursiveRealise(9999).element);
+            // Assert.AreEqual(null, list.findElForOneLinkedListFromEnd_2pointerRealise(1000000).element);
         }
     }
 }

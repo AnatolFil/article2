@@ -23,12 +23,12 @@ namespace article2
             //list.deleteDoublesHashTb();
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 list.add(i);
             }
-            int el = list.findElForOneLinkedListFromEnd_2pointerRealise(0).element;
-            el = list.findElForOneLinkedListFromEnd_2pointerRealise(1).element;
+            int el = list.findElFromEnd_recursiveRealise(0).element;
+            el = list.findElFromEnd_recursiveRealise(1).element;
             Console.WriteLine("Hello World!");
         }
     }
@@ -203,6 +203,22 @@ namespace article2
                     slowPointerEl = slowPointerEl.nextElement;
                 }
                 return slowPointerEl;
+            }
+            return null;
+        }
+        public listElement<T> findElFromEnd_recursiveRealise(int indexFromEnd)
+        {
+            if(countOfElements > indexFromEnd)
+            {
+                if(indexFromEnd == countOfElements - 1)
+                {
+                    return firstElement;
+                }
+                else
+                {
+                    listElement<T> result = findElFromEnd_recursiveRealise(indexFromEnd + 1);
+                    return result.nextElement;
+                }
             }
             return null;
         }
