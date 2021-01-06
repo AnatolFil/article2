@@ -222,6 +222,29 @@ namespace article2
             }
             return null;
         }
+
+        public void deleteMiddleEl()
+        {
+            if(countOfElements > 0)
+            {
+                int ends = countOfElements % 2;
+                int indexOfMiddle = 0;
+                if(ends > 0)
+                {
+                    indexOfMiddle = countOfElements / 2;
+                }
+                else
+                {
+                    indexOfMiddle = (countOfElements / 2) - 1;
+                }
+                listElement<T> current = firstElement;
+                for(int i=0; i < indexOfMiddle; i++)
+                {
+                    current = current.nextElement;
+                }
+                delete(current);
+            }
+        }
     }
     public class linkedList <T>
     {

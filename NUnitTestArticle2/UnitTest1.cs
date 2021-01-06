@@ -98,5 +98,17 @@ namespace NUnitTestArticle2
             Assert.AreEqual(0, list.findElFromEnd_recursiveRealise(9999).element);
             // Assert.AreEqual(null, list.findElForOneLinkedListFromEnd_2pointerRealise(1000000).element);
         }
+        [Test]
+        public void testDeleteMiddleElForOneLinkedList2()
+        {
+            linkedList2<int> list = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 10000; i++)
+            {
+                list.add(i);
+            }
+            
+            // Assert.AreEqual(null, list.findElForOneLinkedListFromEnd_2pointerRealise(1000000).element);
+        }
     }
 }
