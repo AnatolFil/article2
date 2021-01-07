@@ -245,6 +245,10 @@ namespace article2
                 delete(current);
             }
         }
+        public void devideListByEl()
+        {
+
+        }
     }
     public class linkedList <T>
     {

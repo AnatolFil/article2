@@ -103,12 +103,21 @@ namespace NUnitTestArticle2
         {
             linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < 10000; i++)
+            int countOfListEl = 10000;
+            for (int i = 0; i < countOfListEl; i++)
             {
                 list.add(i);
             }
+            list.deleteMiddleEl();
+            countOfListEl = list.countOfElements;
+            Assert.AreEqual((countOfListEl / 2)+1, list.findElFromEnd_recursiveRealise((countOfListEl/2)).element);
+            list.deleteMiddleEl();
+            countOfListEl = list.countOfElements;
+            Assert.AreEqual((countOfListEl / 2) + 2, list.findElFromEnd_recursiveRealise((countOfListEl / 2)-1).element);
             
-            // Assert.AreEqual(null, list.findElForOneLinkedListFromEnd_2pointerRealise(1000000).element);
+            for (int i = 0; i < countOfListEl; i++)
+                list.deleteMiddleEl();
+            Assert.AreEqual(0, list.countOfElements);
         }
     }
 }
