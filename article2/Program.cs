@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace article2
 {
@@ -8,7 +9,7 @@ namespace article2
         static void Main(string[] args)
         {
             //linkedList2<int> list = new linkedList2<int>();
-            //Random rand = new Random(DateTime.Now.Millisecond);
+            Random rand = new Random(DateTime.Now.Millisecond);
             //int delitel = 10000 / 2;
             //for (int i = 0; i < 10000; i++)
             //{
@@ -22,28 +23,35 @@ namespace article2
             //}
             //list.deleteDoublesHashTb();
             linkedList2<int> list = new linkedList2<int>();
-            Random rand = new Random(DateTime.Now.Millisecond);
             for (int i = 0; i < 1000; i++)
             {
-                list.add(i);
+                list.add(rand.Next(0, 200));
             }
-            int el = list.findElFromEnd_recursiveRealise(0).element;
-            el = list.findElFromEnd_recursiveRealise(1).element;
-            Console.WriteLine("Hello World!");
+            list.devideListByEl(50);
+            for (int i = list.countOfElements - 1; i >=0; i--)
+                Console.WriteLine(list.findElForOneLinkedListFromEnd_2pointerRealise(i).element);
         }
     }
 
-    public class listElement<T>
+    public class listElement<T> where T : IComparable<T>
     {
         public T element;
         public listElement<T> nextElement;
         public listElement<T> prevElement;
+        private IComparer<T> comparer;
+        public listElement(IComparer<T> defaultComparer)
+        {
+            if (defaultComparer == null) throw new ArgumentNullException();
+            comparer = defaultComparer;
+        }
+        public listElement() : this(Comparer<T>.Default) { }
     }
-    public class linkedList2<T>
+    public class linkedList2<T> where T : IComparable<T>
     {
         listElement<T> firstElement;
         listElement<T> lastElement;
         public int countOfElements;
+
         public linkedList2()
         {
             countOfElements = 0;
@@ -245,9 +253,28 @@ namespace article2
                 delete(current);
             }
         }
-        public void devideListByEl()
+        public void devideListByEl(T devider)
         {
-
+            if(countOfElements > 1)
+            {
+                listElement<T> current = firstElement.nextElement;
+                listElement<T> prev = firstElement;
+                while (current != null)
+                {
+                    if (current.element.CompareTo(devider)<0)
+                    {
+                        prev.nextElement = current.nextElement;
+                        current.nextElement = firstElement;
+                        firstElement = current;
+                        current = prev.nextElement;
+                    }
+                    else
+                    {
+                        prev = current;
+                        current = current.nextElement;
+                    }
+                }
+            }
         }
     }
     public class linkedList <T>
