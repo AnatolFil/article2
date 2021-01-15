@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace article2
 {
@@ -7,35 +8,50 @@ namespace article2
     {
         static void Main(string[] args)
         {
-            linkedList2<int> list = new linkedList2<int>();
+            //linkedList2<int> list = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            int delitel = 10000 / 2;
-            for (int i = 0; i < 10000; i++)
+            //int delitel = 10000 / 2;
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    list.add(i % delitel);
+            //}
+            //list.deleteDoubles();
+            //for (int i=0;i<10000000; i++)
+            //{
+            //    if (rand.Next(0, 20) > 10)
+            //        list.add(i%20);
+            //}
+            //list.deleteDoublesHashTb();
+            linkedList2<int> list = new linkedList2<int>();
+            for (int i = 0; i < 1000; i++)
             {
-                list.add(i % delitel);
+                list.add(rand.Next(0, 200));
             }
-            list.deleteDoubles();
-            for (int i=0;i<10000000; i++)
-            {
-                if (rand.Next(0, 20) > 10)
-                    list.add(i%20);
-            }
-            list.deleteDoublesHashTb();
-            Console.WriteLine("Hello World!");
+            list.devideListByEl(50);
+            for (int i = list.countOfElements - 1; i >=0; i--)
+                Console.WriteLine(list.findElForOneLinkedListFromEnd_2pointerRealise(i).element);
         }
     }
 
-    public class listElement<T>
+    public class listElement<T> where T : IComparable<T>
     {
         public T element;
         public listElement<T> nextElement;
         public listElement<T> prevElement;
+        private IComparer<T> comparer;
+        public listElement(IComparer<T> defaultComparer)
+        {
+            if (defaultComparer == null) throw new ArgumentNullException();
+            comparer = defaultComparer;
+        }
+        public listElement() : this(Comparer<T>.Default) { }
     }
-    public class linkedList2<T>
+    public class linkedList2<T> where T : IComparable<T>
     {
         listElement<T> firstElement;
         listElement<T> lastElement;
         public int countOfElements;
+
         public linkedList2()
         {
             countOfElements = 0;
@@ -161,12 +177,121 @@ namespace article2
                 }
              }
         }
-        public void deleteElForOneLinkedListFromEnd(int indexFromEnd)
+        public listElement<T> findElForOneLinkedListFromEnd(int indexFromEnd)
+        {
+            if(countOfElements > 0 && countOfElements > indexFromEnd)
+            {
+                listElement<T> current = firstElement;
+                int currentCount = 0;
+                while(current != null )
+                {
+                    if (currentCount == countOfElements - indexFromEnd - 1)
+                        return current;
+                    currentCount++;
+                    current = current.nextElement;
+                }
+            }
+            return null;
+        }
+        public listElement<T> findElForOneLinkedListFromEnd_2pointerRealise(int indexfromEnd)
+        {
+            if (countOfElements > indexfromEnd)
+            {
+                //int ffstPointer = 0;
+                //int slowdPointer = 0;
+                listElement<T> fastPointerEl = firstElement;
+                for (int i = 1; i <= indexfromEnd; i++)
+                {
+                    fastPointerEl = fastPointerEl.nextElement;
+                }
+                listElement<T> slowPointerEl = firstElement;
+                while(fastPointerEl.nextElement != null)
+                {
+                    fastPointerEl = fastPointerEl.nextElement;
+                    slowPointerEl = slowPointerEl.nextElement;
+                }
+                return slowPointerEl;
+            }
+            return null;
+        }
+        public listElement<T> findElFromEnd_recursiveRealise(int indexFromEnd)
         {
             if(countOfElements > indexFromEnd)
             {
+                if(indexFromEnd == countOfElements - 1)
+                {
+                    return firstElement;
+                }
+                else
+                {
+                    listElement<T> result = findElFromEnd_recursiveRealise(indexFromEnd + 1);
+                    return result.nextElement;
+                }
+            }
+            return null;
+        }
+
+        public void deleteMiddleEl()
+        {
+            if(countOfElements > 0)
+            {
+                int ends = countOfElements % 2;
+                int indexOfMiddle = 0;
+                if(ends > 0)
+                {
+                    indexOfMiddle = countOfElements / 2;
+                }
+                else
+                {
+                    indexOfMiddle = (countOfElements / 2) - 1;
+                }
+                listElement<T> current = firstElement;
+                for(int i=0; i < indexOfMiddle; i++)
+                {
+                    current = current.nextElement;
+                }
+                delete(current);
+            }
+        }
+        public void devideListByEl(T devider)
+        {
+            if(countOfElements > 1)
+            {
+                listElement<T> current = firstElement.nextElement;
+                listElement<T> prev = firstElement;
+                while (current != null)
+                {
+                    if (current.element.CompareTo(devider)<0)
+                    {
+                        prev.nextElement = current.nextElement;
+                        current.nextElement = firstElement;
+                        firstElement = current;
+                        current = prev.nextElement;
+                    }
+                    else
+                    {
+                        prev = current;
+                        current = current.nextElement;
+                    }
+                }
+            }
+        }
+        static public linkedList2<int> add (linkedList2<int> a, linkedList2<int> b)
+        {
+            linkedList2<int> res = new linkedList2<int>();
+            int maxCount = 0;
+            if (a.countOfElements >= b.countOfElements)
+                maxCount = a.countOfElements;
+            else
+                maxCount = b.countOfElements;
+            listElement<int> currentA = a.firstElement;
+
+            for (int i = 0; i < maxCount; i++)
+            {
 
             }
+            res.add(0);
+            return res;
         }
     }
     public class linkedList <T>
