@@ -279,18 +279,37 @@ namespace article2
         static public linkedList2<int> add (linkedList2<int> a, linkedList2<int> b)
         {
             linkedList2<int> res = new linkedList2<int>();
+            res.add(0);
             int maxCount = 0;
             if (a.countOfElements >= b.countOfElements)
                 maxCount = a.countOfElements;
             else
                 maxCount = b.countOfElements;
             listElement<int> currentA = a.firstElement;
-
+            listElement<int> currentB = b.firstElement;
+            listElement<int> currentRes = res.firstElement;
             for (int i = 0; i < maxCount; i++)
             {
-
-            }
-            res.add(0);
+                if (currentB != null && currentA != null)
+                {
+                    currentRes.element = currentA.element + currentB.element;
+                    currentA = currentA.nextElement;
+                    currentB = currentB.nextElement;
+                }
+                else if (currentA != null)
+                {
+                    currentRes.element = currentA.element;
+                    currentA = currentA.nextElement;
+                }   
+                else if (currentB != null)
+                {
+                    currentRes.element = currentB.element;
+                    currentB = currentB.nextElement;
+                }
+                if(currentA != null || currentB != null)
+                    res.add(0);
+                currentRes = currentRes.nextElement;
+            }    
             return res;
         }
     }

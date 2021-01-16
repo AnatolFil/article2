@@ -119,5 +119,39 @@ namespace NUnitTestArticle2
                 list.deleteMiddleEl();
             Assert.AreEqual(0, list.countOfElements);
         }
+        [Test]
+        public void testAddForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            linkedList2<int> b = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for(int i=0;i<rand.Next(10000,100000);i++)
+            {
+                a.add(rand.Next());
+            }
+            for (int i = 0; i < rand.Next(10000, 100000); i++)
+            {
+                b.add(rand.Next());
+            }
+            linkedList2<int>  res = linkedList2<int>.add(a, b);
+            for(int i=0;i<res.countOfElements;i++)
+            {
+                int ResA = 0;
+                if(a.findElForOneLinkedListFromEnd(a.countOfElements -i -1) != null)
+                {
+                    ResA = a.findElForOneLinkedListFromEnd(a.countOfElements - i - 1).element;
+                }
+                int ResB = 0;
+                if (b.findElForOneLinkedListFromEnd(b.countOfElements - i - 1) != null)
+                {
+                    ResB = b.findElForOneLinkedListFromEnd(b.countOfElements - i - 1).element;
+                }
+                int ResR = res.findElForOneLinkedListFromEnd(res.countOfElements - i - 1).element;
+                Assert.AreEqual(ResA + ResB, ResR);
+            }
+            
+            //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(1).element);
+            //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(0).element);
+        }
     }
 }
