@@ -312,6 +312,21 @@ namespace article2
             }    
             return res;
         }
+        static public linkedList2<int> addRecursive(linkedList2<int> a, linkedList2<int> b)
+        {
+            linkedList2<int> res = new linkedList2<int>();
+            if (a.countOfElements == 1)
+            {
+                //if (a.firstElement != null && b.firstElement != null)
+                //    res.add(a.firstElement.element + b.firstElement.element);
+                //else if (a.firstElement != null)
+                //    res.add(a.firstElement.element);
+                //else
+                //    res.add(b.firstElement.element);
+            }
+                
+            return res;
+        }
     }
     public class linkedList <T>
     {
