@@ -24,3 +24,16 @@ C:\Users\Админ\Documents\GitHub\article2\article2\obj\Debug\netcoreapp3.1\a
 C:\Users\Админ\Documents\GitHub\article2\article2\obj\Debug\netcoreapp3.1\article2.dll
 C:\Users\Админ\Documents\GitHub\article2\article2\obj\Debug\netcoreapp3.1\article2.pdb
 C:\Users\Админ\Documents\GitHub\article2\article2\obj\Debug\netcoreapp3.1\article2.genruntimeconfig.cache
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.dll
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.pdb
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.exe
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.deps.json
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.runtimeconfig.json
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.runtimeconfig.dev.json
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.dll
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\bin\Debug\netcoreapp3.1\article2.pdb
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.csprojAssemblyReference.cache
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.AssemblyInfoInputs.cache
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.AssemblyInfo.cs
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.csproj.CoreCompileInputs.cache
+C:\Users\Админ\Source\Repos\AnatolFil\article2\article2\obj\Debug\netcoreapp3.1\article2.genruntimeconfig.cache

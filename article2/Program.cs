@@ -280,36 +280,41 @@ namespace article2
         {
             linkedList2<int> res = new linkedList2<int>();
             res.add(0);
-            int maxCount = 0;
-            if (a.countOfElements >= b.countOfElements)
-                maxCount = a.countOfElements;
-            else
-                maxCount = b.countOfElements;
             listElement<int> currentA = a.firstElement;
             listElement<int> currentB = b.firstElement;
             listElement<int> currentRes = res.firstElement;
-            for (int i = 0; i < maxCount; i++)
+            while (currentA != null || currentB != null)
             {
                 if (currentB != null && currentA != null)
                 {
-                    currentRes.element = currentA.element + currentB.element;
+                    currentRes.element += currentA.element + currentB.element;
                     currentA = currentA.nextElement;
                     currentB = currentB.nextElement;
+                    if (currentRes.element >= 10)
+                    {
+                        res.add(1);
+                        int rest = currentRes.element % 10;
+                        currentRes.element = rest;
+                    }
+                    else
+                        res.add(0);
+                    currentRes = currentRes.nextElement;
+                    continue;
                 }
                 else if (currentA != null)
                 {
-                    currentRes.element = currentA.element;
+                    currentRes.element += currentA.element;
                     currentA = currentA.nextElement;
                 }   
                 else if (currentB != null)
                 {
-                    currentRes.element = currentB.element;
+                    currentRes.element += currentB.element;
                     currentB = currentB.nextElement;
-                }
+                } 
                 if(currentA != null || currentB != null)
                     res.add(0);
                 currentRes = currentRes.nextElement;
-            }    
+            } 
             return res;
         }
         static public linkedList2<int> addRecursive(linkedList2<int> a, linkedList2<int> b)

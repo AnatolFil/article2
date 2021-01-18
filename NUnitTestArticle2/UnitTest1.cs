@@ -124,32 +124,31 @@ namespace NUnitTestArticle2
         {
             linkedList2<int> a = new linkedList2<int>();
             linkedList2<int> b = new linkedList2<int>();
+            string strA = "";
+            string strB = "";
             Random rand = new Random(DateTime.Now.Millisecond);
-            for(int i=0;i<rand.Next(10000,100000);i++)
+            for(int i=0;i<rand.Next(5,10);i++)
             {
-                a.add(rand.Next());
+                int intA = rand.Next(0, 9);
+                a.add(intA);
+                strA = strA.Insert(0, intA.ToString());
             }
-            for (int i = 0; i < rand.Next(10000, 100000); i++)
+            for (int i = 0; i < rand.Next(5, 10); i++)
             {
-                b.add(rand.Next());
+                int intB = rand.Next(0, 9);
+                b.add(intB);
+                strB = strB.Insert(0,intB.ToString());
             }
             linkedList2<int>  res = linkedList2<int>.add(a, b);
+            string strRes = "";
             for(int i=0;i<res.countOfElements;i++)
             {
-                int ResA = 0;
-                if(a.findElForOneLinkedListFromEnd(a.countOfElements -i -1) != null)
-                {
-                    ResA = a.findElForOneLinkedListFromEnd(a.countOfElements - i - 1).element;
-                }
-                int ResB = 0;
-                if (b.findElForOneLinkedListFromEnd(b.countOfElements - i - 1) != null)
-                {
-                    ResB = b.findElForOneLinkedListFromEnd(b.countOfElements - i - 1).element;
-                }
-                int ResR = res.findElForOneLinkedListFromEnd(res.countOfElements - i - 1).element;
-                Assert.AreEqual(ResA + ResB, ResR);
+                strRes += res.findElForOneLinkedListFromEnd(i).element;
             }
-            
+            int expectdRes = Convert.ToInt32(strA) + Convert.ToInt32(strB);
+            int intRes = Convert.ToInt32(strRes);
+            Assert.AreEqual(expectdRes, intRes);
+
             //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(1).element);
             //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(0).element);
         }
