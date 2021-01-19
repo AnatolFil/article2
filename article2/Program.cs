@@ -324,7 +324,7 @@ namespace article2
             {
                 //if (a.firstElement != null && b.firstElement != null)
                 //    res.add(a.firstElement.element + b.firstElement.element);
-                //else if (a.firstElement != null)
+                //else if (a.firstElement != null)j
                 //    res.add(a.firstElement.element);
                 //else
                 //    res.add(b.firstElement.element);
