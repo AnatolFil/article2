@@ -148,9 +148,67 @@ namespace NUnitTestArticle2
             int expectdRes = Convert.ToInt32(strA) + Convert.ToInt32(strB);
             int intRes = Convert.ToInt32(strRes);
             Assert.AreEqual(expectdRes, intRes);
-
-            //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(1).element);
-            //Assert.AreEqual(4, res.findElForOneLinkedListFromEnd(0).element);
+        }
+        [Test]
+        public void testIsPalindromForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            int lenghtMas = 10000000;
+            int[] mas = new int[lenghtMas];
+            for(int i =0;i< lenghtMas; i++)
+            {
+                mas[i] = rand.Next();
+            }
+            for (int i = 0; i < lenghtMas; i++)
+                a.add(mas[i]);
+            for(int i = lenghtMas-1; i>=0; i--)
+            {
+                a.add(mas[i]);
+            }
+            Assert.AreEqual(true, a.isPalindrom());
+        }
+        [Test]
+        public void testIsPalindromStackReleaseForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            int lenghtMas = 10000000;
+            int[] mas = new int[lenghtMas];
+            for (int i = 0; i < lenghtMas; i++)
+            {
+                mas[i] = rand.Next();
+            }
+            for (int i = 0; i < lenghtMas; i++)
+                a.add(mas[i]);
+            for (int i = lenghtMas - 1; i >= 0; i--)
+            {
+                a.add(mas[i]);
+            }
+            Assert.AreEqual(true, a.isPalindromStackRelease());
+        }
+        [Test]
+        public void testisPalindromRecursiveReleaseForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            int lenghtMas = 5;
+            int[] mas = new int[lenghtMas];
+            //for (int i = 0; i < lenghtMas; i++)
+            //{
+            //    mas[i] = rand.Next();
+            //}
+            //for (int i = 0; i < lenghtMas; i++)
+            //    a.add(mas[i]);
+            //for (int i = lenghtMas - 1; i >= 0; i--)
+            //{
+            //    a.add(mas[i]);
+            //}
+            a.add(1);
+            a.add(0);
+            a.add(0);
+            a.add(1);
+            Assert.AreEqual(true, a.isPalindromRecursiveRelease());
         }
     }
 }

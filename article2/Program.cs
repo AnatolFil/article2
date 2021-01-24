@@ -317,20 +317,100 @@ namespace article2
             } 
             return res;
         }
-        static public linkedList2<int> addRecursive(linkedList2<int> a, linkedList2<int> b)
+        public bool isPalindrom()
         {
-            linkedList2<int> res = new linkedList2<int>();
-            if (a.countOfElements == 1)
+            bool res = true;
+            if (countOfElements > 2)
             {
-                //if (a.firstElement != null && b.firstElement != null)
-                //    res.add(a.firstElement.element + b.firstElement.element);
-                //else if (a.firstElement != null)j
-                //    res.add(a.firstElement.element);
-                //else
-                //    res.add(b.firstElement.element);
+                listElement<T>[] mas = new listElement<T>[countOfElements];
+                listElement<T> current = firstElement;
+                int i = 0;
+                while (current != null)
+                {
+                    mas[i] = current;
+                    i++;
+                    current = current.nextElement;
+                }
+                //int middle = countOfElements / 2;
+                for (i = 0; i < countOfElements / 2; i++)
+                {
+                    if (mas[i].element.CompareTo(mas[countOfElements - i - 1].element) != 0)
+                    {
+                        res = false;
+                        break;
+                    }
+                }
             }
-                
             return res;
+        }
+        public bool isPalindromStackRelease()
+        {
+            bool res = true;
+            if (countOfElements > 2)
+            {
+                Stack<T> stack = new Stack<T>();
+                listElement<T> current = firstElement;
+                while(current != null)
+                {
+                    stack.Push(current.element);
+                    current = current.nextElement;
+                }
+                current = firstElement;
+                for (int i=0; i<countOfElements/2;i++)
+                {
+                    if(current.element.CompareTo(stack.Pop()) != 0)
+                    {
+                        res = false;
+                        break;
+                    }
+                    current = current.nextElement;
+                }
+            }
+            return res;
+        }
+        public bool isPalindromRecursiveRelease()
+        {
+            if (countOfElements > 2)
+            {
+                listElement<T> res = recurseivePalindromCheck(firstElement, 1);
+                if (res == firstElement)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return true;
+        }
+        private listElement<T> recurseivePalindromCheck(listElement<T> next, int count)
+        {
+            listElement<T> res;
+            if (count >= countOfElements/2)
+            {
+                if(countOfElements % 2 > 0)
+                {
+                    if (next.element.CompareTo(next.nextElement.nextElement.element) != 0)
+                        return null;
+                    else
+                        return next.nextElement.nextElement.nextElement;
+                }
+                else
+                    if (next.element.CompareTo(next.nextElement.element) != 0)
+                        return null;
+                else
+                    return next.nextElement.nextElement;
+            }
+            res = recurseivePalindromCheck(next.nextElement, ++count);
+            if (res != null && count != 1)
+            {
+                if (next.element.CompareTo(res.element) != 0)
+                    return null;
+                else
+                    return res.nextElement;
+            }
+            else if (count != 1)
+                return null;
+            else
+                return firstElement;
         }
     }
     public class linkedList <T>

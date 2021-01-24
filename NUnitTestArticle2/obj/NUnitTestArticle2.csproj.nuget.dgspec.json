@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj": {}
+    "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {
+    "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
+        "projectUniqueName": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
         "projectName": "article2",
-        "projectPath": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
-        "packagesPath": "C:\\Users\\Админ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\obj\\",
+        "projectPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
+        "packagesPath": "C:\\Users\\chupakabra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Админ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\chupakabra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,21 +57,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj": {
+    "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
+        "projectUniqueName": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
         "projectName": "NUnitTestArticle2",
-        "projectPath": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
-        "packagesPath": "C:\\Users\\Админ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\obj\\",
+        "projectPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
+        "packagesPath": "C:\\Users\\chupakabra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Админ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\chupakabra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {
-                "projectPath": "C:\\Users\\Админ\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj"
+              "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {
+                "projectPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj"
               }
             }
           }
@@ -126,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
