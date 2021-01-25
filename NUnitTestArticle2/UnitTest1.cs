@@ -192,22 +192,18 @@ namespace NUnitTestArticle2
         {
             linkedList2<int> a = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            int lenghtMas = 5;
+            int lenghtMas = 10000;
             int[] mas = new int[lenghtMas];
-            //for (int i = 0; i < lenghtMas; i++)
-            //{
-            //    mas[i] = rand.Next();
-            //}
-            //for (int i = 0; i < lenghtMas; i++)
-            //    a.add(mas[i]);
-            //for (int i = lenghtMas - 1; i >= 0; i--)
-            //{
-            //    a.add(mas[i]);
-            //}
-            a.add(1);
-            a.add(0);
-            a.add(0);
-            a.add(1);
+            for (int i = 0; i < lenghtMas; i++)
+            {
+                mas[i] = rand.Next();
+            }
+            for (int i = 0; i < lenghtMas; i++)
+                a.add(mas[i]);
+            for (int i = lenghtMas - 1; i >=0 ; i--)
+            {
+                a.add(mas[i]);
+            }
             Assert.AreEqual(true, a.isPalindromRecursiveRelease());
         }
     }

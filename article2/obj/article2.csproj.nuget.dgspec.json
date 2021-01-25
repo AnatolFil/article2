@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {}
+    "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\article2\\article2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj": {
+    "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\article2\\article2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
+        "projectUniqueName": "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\article2\\article2.csproj",
         "projectName": "article2",
-        "projectPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\article2.csproj",
+        "projectPath": "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\article2\\article2.csproj",
         "packagesPath": "C:\\Users\\chupakabra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\article2\\obj\\",
+        "outputPath": "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\article2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

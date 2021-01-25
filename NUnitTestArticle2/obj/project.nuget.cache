@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "al4Khjt/pezXc6Jq+6nuSR6sr++nnULEa8f77dCfVvwFXq5NSC1zaDU58wVSH+AsYeETydB817uu/FZzNLfeSg==",
+  "dgSpecHash": "grSodGBaOl1ZeCP4BP52A0JbJMxEo5tclj18r5TFS+tb/1hu25lTaL5BZ0/GkfNjnEZ1FNhwz+65f697EHtweg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chupakabra\\Source\\Repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
+  "projectFilePath": "C:\\Users\\chupakabra\\source\\repos\\AnatolFil\\article2\\NUnitTestArticle2\\NUnitTestArticle2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chupakabra\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\chupakabra\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

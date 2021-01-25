@@ -400,17 +400,20 @@ namespace article2
                     return next.nextElement.nextElement;
             }
             res = recurseivePalindromCheck(next.nextElement, ++count);
-            if (res != null && count != 1)
+            if (res != null)
             {
                 if (next.element.CompareTo(res.element) != 0)
                     return null;
-                else
+                else if (res.nextElement != null)
                     return res.nextElement;
+                else
+                    return firstElement;
             }
-            else if (count != 1)
-                return null;
-            else
-                return firstElement;
+            return null;
+            //else if (count != 1)
+            //    return null;
+            //else
+            //    return firstElement;
         }
     }
     public class linkedList <T>
