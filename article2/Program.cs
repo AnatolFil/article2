@@ -445,6 +445,45 @@ namespace article2
             //else
             //    return firstElement;
         }
+        public static listElement<T> findIntersection(linkedList2<T> a, linkedList2<T> b)
+        {
+            listElement<T> res = null;
+            if(a.findElForOneLinkedListFromEnd_2pointerRealise(0) == b.findElForOneLinkedListFromEnd_2pointerRealise(0))
+            {
+                int difference = 0;
+                listElement<T> currentA = a.findElForOneLinkedListFromEnd_2pointerRealise(a.countOfElements - 1);
+                listElement<T> currentB = b.findElForOneLinkedListFromEnd_2pointerRealise(b.countOfElements - 1);
+                if (a.countOfElements >= b.countOfElements)
+                {
+                    difference = a.countOfElements - b.countOfElements;
+                    while(difference > 0)
+                    {
+                        currentA = currentA.nextElement;
+                        difference--;
+                    }
+                }
+                else
+                {
+                    difference = b.countOfElements - a.countOfElements;
+                    while (difference > 0)
+                    {
+                        currentB = currentB.nextElement;
+                        difference--;
+                    }
+                }
+                while(currentA != null && currentB != null)
+                {
+                    if(currentA == currentB)
+                    {
+                        res = currentA;
+                        break;
+                    }
+                    currentA = currentA.nextElement;
+                    currentB = currentB.nextElement;
+                }
+            }
+            return res;
+        }
     }
     public class linkedList <T>
     {
