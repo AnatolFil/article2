@@ -74,6 +74,36 @@ namespace article2
             lastElement = newEl;
             countOfElements++;
         }
+        public void add(listElement<T> element)
+        {
+            int counter = 1;
+            if (countOfElements == 0)
+            {
+                //newEl.nextElement = null;
+                element.prevElement = null;
+                firstElement = element;
+            }
+            else
+            {
+                element.prevElement = lastElement;
+                lastElement.nextElement = element;
+                //newEl.nextElement = null;
+                listElement<T> current = element;
+                listElement<T> prevEl = current;
+                while (current != null)
+                {
+                    prevEl = current;
+                    current = current.nextElement;
+                    if (current == null)
+                    {
+                        lastElement = prevEl;
+                        break;
+                    }
+                    counter++;
+                }
+            }
+            countOfElements = countOfElements + counter;
+        }
         public void delete(T element)
         {
             if(countOfElements > 0)

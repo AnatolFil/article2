@@ -206,5 +206,27 @@ namespace NUnitTestArticle2
             }
             Assert.AreEqual(true, a.isPalindromRecursiveRelease());
         }
+        [Test]
+        public void testAddListElementForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            linkedList2<int> b = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+            
+            for (int i = 0; i < 10; i++)
+            {
+                a.add(i);
+            }
+            for (int i = 10; i < 15; i++)
+            {
+                b.add(i);
+            }
+            b.add(a.findElForOneLinkedListFromEnd_2pointerRealise(5));
+            for(int i=0;i<5;i++)
+            {
+                Assert.AreEqual(9-i, b.findElForOneLinkedListFromEnd_2pointerRealise(i).element);
+            }
+            
+        }
     }
 }
