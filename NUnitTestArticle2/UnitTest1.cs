@@ -260,5 +260,33 @@ namespace NUnitTestArticle2
             Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(0).nextElement, a.findElForOneLinkedListFromEnd_2pointerRealise(5));
             Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(0).nextElement.nextElement, a.findElForOneLinkedListFromEnd_2pointerRealise(4));
         }
+        [Test]
+        public void testfindAndGetCircledElementHashTableRealiseForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            for (int i = 0; i < 1000; i++)
+            {
+                a.add(rand.Next());
+            }
+            a.createCircle(a.findElForOneLinkedListFromEnd_2pointerRealise(500));
+
+            Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(500), a.findAndGetCircledElementHashTableRealise());
+        }
+        [Test]
+        public void testfindAndGetCircledElementHashTableRealiseForOneLinkedList2WithoutCircle()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            for (int i = 0; i < 1000; i++)
+            {
+                a.add(rand.Next());
+            }
+            //a.createCircle(a.findElForOneLinkedListFromEnd_2pointerRealise(5));
+
+            Assert.AreEqual(null, a.findAndGetCircledElementHashTableRealise());
+        }
     }
 }

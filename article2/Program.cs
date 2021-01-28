@@ -499,6 +499,28 @@ namespace article2
                 lastElement = null;
             }
         }
+        public listElement<T> findAndGetCircledElementHashTableRealise()
+        {
+            listElement<T> res = null;
+            if(countOfElements > 2)
+            {
+                Hashtable ht = new Hashtable();
+                listElement<T> current = firstElement;
+                int counter = countOfElements;
+                while (counter >= 0 && current != null)
+                {
+                    if (ht.Contains(current))
+                    {
+                        res = current;
+                        break;
+                    }
+                    ht.Add(current, current.element);
+                    current = current.nextElement;
+                    counter--;
+                }
+            }
+            return res;
+        }
     }
     public class linkedList <T>
     {
