@@ -67,6 +67,8 @@ namespace article2
                 firstElement = newEl;
             } else
             {
+                if (lastElement == null)
+                    return;
                 newEl.prevElement = lastElement;
                 newEl.nextElement = null;
                 lastElement.nextElement = newEl;
@@ -85,6 +87,8 @@ namespace article2
             }
             else
             {
+                if (lastElement == null)
+                    return;
                 element.prevElement = lastElement;
                 lastElement.nextElement = element;
                 //newEl.nextElement = null;
@@ -229,16 +233,19 @@ namespace article2
             {
                 //int ffstPointer = 0;
                 //int slowdPointer = 0;
+                int counter = countOfElements;
                 listElement<T> fastPointerEl = firstElement;
                 for (int i = 1; i <= indexfromEnd; i++)
                 {
                     fastPointerEl = fastPointerEl.nextElement;
+                    counter--;
                 }
                 listElement<T> slowPointerEl = firstElement;
-                while(fastPointerEl.nextElement != null)
+                while(counter > 1)
                 {
                     fastPointerEl = fastPointerEl.nextElement;
                     slowPointerEl = slowPointerEl.nextElement;
+                    counter--;
                 }
                 return slowPointerEl;
             }
@@ -483,6 +490,14 @@ namespace article2
                 }
             }
             return res;
+        }
+        public void createCircle(listElement<T> circleElement)
+        {
+            if(circleElement != null && circleElement.nextElement != null)
+            {
+                lastElement.nextElement = circleElement;
+                lastElement = null;
+            }
         }
     }
     public class linkedList <T>

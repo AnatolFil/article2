@@ -192,7 +192,7 @@ namespace NUnitTestArticle2
         {
             linkedList2<int> a = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
-            int lenghtMas = 10000;
+            int lenghtMas = 100;
             int[] mas = new int[lenghtMas];
             for (int i = 0; i < lenghtMas; i++)
             {
@@ -245,6 +245,20 @@ namespace NUnitTestArticle2
             }
             b.add(a.findElForOneLinkedListFromEnd_2pointerRealise(5));
             Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(5), linkedList2<int>.findIntersection(a,b));
+        }
+        [Test]
+        public void testCreateCircleForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            for (int i = 0; i < 10; i++)
+            {
+                a.add(rand.Next());
+            }
+            a.createCircle(a.findElForOneLinkedListFromEnd_2pointerRealise(5));
+            Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(0).nextElement, a.findElForOneLinkedListFromEnd_2pointerRealise(5));
+            Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(0).nextElement.nextElement, a.findElForOneLinkedListFromEnd_2pointerRealise(4));
         }
     }
 }
