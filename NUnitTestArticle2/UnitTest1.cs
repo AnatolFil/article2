@@ -266,7 +266,7 @@ namespace NUnitTestArticle2
             linkedList2<int> a = new linkedList2<int>();
             Random rand = new Random(DateTime.Now.Millisecond);
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10000000; i++)
             {
                 a.add(rand.Next());
             }
@@ -287,6 +287,20 @@ namespace NUnitTestArticle2
             //a.createCircle(a.findElForOneLinkedListFromEnd_2pointerRealise(5));
 
             Assert.AreEqual(null, a.findAndGetCircledElementHashTableRealise());
+        }
+        [Test]
+        public void testfindAndGetCircledElement2PointerRealiseForOneLinkedList2()
+        {
+            linkedList2<int> a = new linkedList2<int>();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            for (int i = 0; i < 10000000; i++)
+            {
+                a.add(rand.Next());
+            }
+            a.createCircle(a.findElForOneLinkedListFromEnd_2pointerRealise(500000));
+
+            Assert.AreEqual(a.findElForOneLinkedListFromEnd_2pointerRealise(500000), a.findAndGetCircledElement2PointerRealise());
         }
     }
 }

@@ -502,7 +502,7 @@ namespace article2
         public listElement<T> findAndGetCircledElementHashTableRealise()
         {
             listElement<T> res = null;
-            if(countOfElements > 2)
+            if(countOfElements > 1)
             {
                 Hashtable ht = new Hashtable();
                 listElement<T> current = firstElement;
@@ -518,6 +518,32 @@ namespace article2
                     current = current.nextElement;
                     counter--;
                 }
+            }
+            return res;
+        }
+        public listElement<T> findAndGetCircledElement2PointerRealise()
+        {
+            listElement<T> res = null;
+            if(countOfElements > 1)
+            {
+                listElement<T> fast = firstElement;
+                listElement<T> slow = firstElement;
+                while(fast != null || fast.nextElement != null)
+                {
+                    slow = slow.nextElement;
+                    fast = fast.nextElement.nextElement;
+                    if (slow == fast)
+                        break;   
+                }
+                if (fast == null || fast.nextElement == null)
+                    return res;
+                slow = firstElement;
+                while (slow != fast)
+                {
+                    slow = slow.nextElement;
+                    fast = fast.nextElement;
+                }
+                res = slow;
             }
             return res;
         }
