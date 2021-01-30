@@ -547,6 +547,7 @@ namespace article2
             }
             return res;
         }
+        //the end of article 2!
     }
     public class linkedList <T>
     {
